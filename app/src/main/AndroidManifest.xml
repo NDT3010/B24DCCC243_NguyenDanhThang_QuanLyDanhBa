@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Cho phép tìm ứng dụng quay số (Intent ngầm định ACTION_DIAL) trên Android 11+ -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+            <data android:scheme="tel" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.QuanLyDanhBa">
+
+        <!-- Màn hình 1: Đăng nhập (màn hình khởi động) -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.QuanLyDanhBa.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Màn hình 2: Danh sách liên hệ -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/title_main" />
+
+        <!-- Màn hình 3: Thêm liên hệ -->
+        <activity
+            android:name=".AddContactActivity"
+            android:exported="false"
+            android:label="@string/title_add"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Màn hình 4: Chi tiết liên hệ -->
+        <activity
+            android:name=".ContactDetailActivity"
+            android:exported="false"
+            android:label="@string/title_detail" />
+    </application>
+
+</manifest>
